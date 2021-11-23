@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./index.css"
 import "./Homew.png"
+import Element from './Element'
 const ImgSlider = () => {
+    useEffect(() => {
+        const ftechApi = async () => {
+            const url = `https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=in&lang=en&q="breaking-news"`
+            const response = await fetch(url)
+            const resJson = await response.json()
+            console.log(resJson)
+        }
+        ftechApi();
+    })
     return (
         <>
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -44,16 +54,16 @@ const ImgSlider = () => {
             </div>
             <ul class="nav justify-content-center my-3">
                 <span style={{ fontSize: "1.5rem", color: "white" }}>
-                    <i class="fas fa-home"><h6 id="hideqq">Fuss</h6></i>&nbsp;&nbsp;
+                    <i class="fas fa-home"></i>&nbsp;&nbsp;
                 </span>
                 <span style={{ fontSize: "1.5rem", color: "white" }}>
-                    <i class="fas fa-futbol"><h6 id="hideqq">Sports</h6></i>&nbsp;&nbsp;
+                    <i class="fas fa-futbol"></i>&nbsp;&nbsp;
                 </span>
                 <span style={{ fontSize: "1.5rem", color: "white" }}>
-                    <i class="fas fa-globe"><h6 id="hideqq">World</h6></i>&nbsp;&nbsp;
+                    <i class="fas fa-globe"></i>&nbsp;&nbsp;
                 </span>
                 <span style={{ fontSize: "1.5rem", color: "white" }}>
-                    <i class="fas fa-tv"><h6 id="hideqq">Cinema</h6></i>&nbsp;&nbsp;
+                    <i class="fas fa-tv"></i>&nbsp;&nbsp;
                 </span>
             </ul>
             <div className="container">
@@ -61,7 +71,7 @@ const ImgSlider = () => {
             </div>
             <nav class="navbar fixed-bottom navbar-dark bg-dark">
                 <div className="container">
-                    <input type="text" placeHolder="  Search Any Article" style={{ width: "50%", borderRadius: "5px", border: "none" }} /><i style={{color:"white"}} class="fas fa-search"></i>
+                    <input type="text" placeHolder="  Search Any Article" style={{ width: "50%", borderRadius: "5px", border: "none" }} /><i style={{ color: "white" }} class="fas fa-search"></i>
                 </div>
             </nav>
         </>

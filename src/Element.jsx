@@ -1,20 +1,24 @@
-import React from "react";
-import "./index.css"
-const Element = () => {
-    return (
-        <>
+import React, { Component} from 'react'
+import PropTypes from 'prop-types'
 
-            <div className="container my-3">
-                <div class="card">
-                    <img class="card-img-top" src="..." alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+export class Element extends Component {
+    
+
+    render() {
+        let {title,description,image,url}=this.props
+        return (
+            <div>
+                <div className="card">
+                    <img src={!image?"https://picsum.photos/seed/picsum/200/300":image} className="card-img-top" alt="dfd" />
+                    <div className="card-body">
+                        <h5 className="card-title">{title}</h5>
+                        <p className="card-text">{description}...</p>
+                        <a href={url} target="_blank" className="btn  btn -sm btn-secondary">READ MORE</a>
                     </div>
                 </div>
             </div>
-        </>
-    )
+        )
+    }
 }
+
 export default Element

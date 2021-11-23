@@ -5,15 +5,14 @@ import Navbar from './Navbar';
 //import Bottom from "./Bottom"
 import Element from "./Element"
 import ImgSlider from './ImgSlider';
+import Api from './Api';
 function App() {
   return (
     <>
       {/*<Nyt/>*/}
       <Navbar/>
       <ImgSlider/>
-      <Element/>
-      <Element/>
-      <Element/>
+      <Api/>
     </>
   );
 }
