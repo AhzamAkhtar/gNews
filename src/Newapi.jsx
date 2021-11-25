@@ -143,7 +143,7 @@ const Newapi = () => {
                 {article.map((item, index) => {
                     return (
                         <>
-                            <div className="card my-2" style={{ backgroundColor: "black",border:" 0.2px solid #fff",borderRadius:"8px"}} onClick={() => window.open(item.url)}>
+                            <div className="card my-2" style={{ backgroundColor: "black",borderRadius:"8px"}} onClick={() => window.open(item.url)}>
                                 <div class="my-4">
                                     <img src={item.image} class="card-img-top" alt="image" />
                                     <div class="card-body">
