@@ -6,12 +6,13 @@ export class Api extends Component {
     static defaultProps = {
         country: "in",
         pagesize: 8,
-        category: "breaking-news"
+        category: "breaking-news",
     }
     static propTypes = {
         country: PropTypes.string,
         pagesize: PropTypes.number,
         category: PropTypes.string,
+        lang:PropTypes.string,
     }
     articles = []
 
@@ -27,7 +28,7 @@ export class Api extends Component {
     async componentDidMount() {
         console.log("cdm")
         //let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=097575c06ecd4bc4b550fae79a2bd131&pagesize=${this.props.pagesize}`
-        const url=`https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=${this.props.country}&lang=en`
+        const url=`https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=${this.props.country}`
         this.setState({ loading: true })
         let data = await fetch(url)
         let parsedData = await data.json()
@@ -40,7 +41,7 @@ export class Api extends Component {
     }
     handlePrev = async () => {
         console.log("prev")
-        let url = `https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=${this.props.country}&lang=en`
+        let url = `https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=${this.props.country}&lang={this.props.lang}`
         this.setState({ loading: true })
         let data = await fetch(url)
         let parsedData = await data.json()
@@ -58,7 +59,7 @@ export class Api extends Component {
 
         }
         else {
-            let url = `https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=${this.props.country}&lang=en`
+            let url = `https://gnews.io/api/v4/top-headlines?token=a3bd46c42dd12ae35906909a6c7b3556&country=${this.props.country}&lang={this.props.lang}`
             this.setState({ loading: true })
             let data = await fetch(url)
             let parsedData = await data.json()
