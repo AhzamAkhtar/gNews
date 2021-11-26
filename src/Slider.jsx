@@ -7,7 +7,7 @@ const Slider = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=7e53c32c8edefa8c3b41810d70d52934
+            const url = `https://gnews.io/api/v4/top-headlines?&token=71599b3dea18b9dabad1e212e4ea420e
             &country=${country}&lang=en}`;
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
             const response = await fetch(url);
