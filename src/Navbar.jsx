@@ -4,7 +4,7 @@ const Navbar = () => {
         <>
             <nav class="navbar fixed-bottom navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#" style={{color:"lightgreen"}}>gNews.in</a>
+                    <a class="navbar-brand" href="#" style={{color:"lightgreen",marginLeft:"5px",fontSize:"larger"}}>gNews.in</a>
                 </div>
             </nav>
         </>
