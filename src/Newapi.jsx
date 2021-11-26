@@ -3,16 +3,18 @@ import Newelement from './Newelement'
 import Element from './Element'
 
 const Newapi = () => {
-    const [queary, setquery] = useState("nation".toUpperCase())
+    const [queary, setquery] = useState("nation")
     const [article, setarticle] = useState([])
-    const [country,setcountry]=useState("in")
+    const [country, setcountry] = useState("in")
+    const [categ, setcateg] = useState("NATION")
+    const [conname, setconname] = useState("INDIA")
     useEffect(() => {
         const gnewsapi = async () => {
 
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=bd0121d32fcc64c4fa5383f27fa4b35d
+            const url = `https://gnews.io/api/v4/top-headlines?&token=7e53c32c8edefa8c3b41810d70d52934
 
-            &country=${country}&lang=en&q=${queary}`;
+            &country=${country}&lang=en&topic=${queary}`;
 
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
             const response = await fetch(url);
@@ -21,42 +23,76 @@ const Newapi = () => {
             { setarticle(resJson.articles) }
         }
         gnewsapi();
-    }, [queary,country]);
-    const globe = () => {
-        setquery("world".toUpperCase())
+    }, [queary, country]);
+    const nation = (e) => {
+        setquery("breaking-news")
+        e.preventDefault()
+        setcateg("BREAKING-NEWS")
     }
-    const rupee = () => {
-        setquery("market".toUpperCase())
+    const globe = (e) => {
+        setquery("world")
+        e.preventDefault()
+        setcateg("WORLD")
     }
-    const tv = () => {
-        setquery("entertainment".toUpperCase())
+    const rupee = (e) => {
+        setquery("business")
+        e.preventDefault()
+        setcateg("BUSINESS")
     }
-    const microchip = () => {
-        setquery("technology".toUpperCase())
+    const tv = (e) => {
+        setquery("entertainment")
+        e.preventDefault()
+        setcateg("ENTERTAINMENT")
     }
-    const fotbal = () => {
-        setquery("cricket".toUpperCase())
+    const microchip = (e) => {
+        setquery("technology")
+        e.preventDefault()
+        setcateg("TECHNOLOGY")
     }
-    const flask = () => {
-        setquery("science".toUpperCase())
+    const fotbal = (e) => {
+        setquery("sports")
+        e.preventDefault()
+        setcateg("SPORTS")
     }
-    const md = () => {
-        setquery("health".toUpperCase())
+    const flask = (e) => {
+        setquery("science")
+        e.preventDefault()
+        setcateg("SCIENCE")
     }
-    const us=()=>{
+    const md = (e) => {
+        setquery("health")
+        e.preventDefault()
+        setcateg("HEALTH")
+    }
+    const us = (e) => {
         setcountry("us")
+        e.preventDefault()
+        setconname("U.S")
     }
-    const au=()=>{
+    const au = (e) => {
         setcountry("au")
+        e.preventDefault()
+        setconname("AUS")
     }
-    const ca=()=>{
+    const ca = (e) => {
         setcountry("ca")
+        e.preventDefault()
+        setconname("CAN")
     }
-    const gb=()=>{
+    const gb = (e) => {
         setcountry("gb")
+        e.preventDefault()
+        setconname("U.K")
     }
-    const pk=()=>{
+    const pk = (e) => {
         setcountry("pk")
+        e.preventDefault()
+        setconname("PAK")
+    }
+    const ind = (e) => {
+        setcountry("in")
+        e.preventDefault()
+        setconname("INDIA")
     }
 
     return (
@@ -101,6 +137,9 @@ const Newapi = () => {
             </div>
             <ul className="nav justify-content-center my-3">
                 <span style={{ fontSize: "1.2rem", color: "white" }}>
+                    <i onClick={nation} class="far fa-flag" style={{ userSelect: "auto" }}></i>&nbsp;&nbsp;
+                </span>
+                <span style={{ fontSize: "1.2rem", color: "white" }}>
                     <i onClick={globe} className="fas fa-globe"></i>&nbsp;&nbsp;
                 </span>
                 <span style={{ fontSize: "1.2rem", color: "white" }}>
@@ -123,46 +162,45 @@ const Newapi = () => {
                 </span>
                 <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        India
+                        {conname}
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li onClick={us}><a class="dropdown-item" href="#">U.S</a></li>
-                        <li onClick={au}><a class="dropdown-item" href="#">AUSTRALIA</a></li>
-                        <li onClick={ca}><a class="dropdown-item" href="#">CANADA</a></li>
-                        <li onClick={gb}><a class="dropdown-item" href="#">U.K</a></li>
-                        <li onClick={pk}><a class="dropdown-item" href="#">PAKISTAN</a></li>
+                        <li onClick={us}><a class="dropdown-item">U.S</a></li>
+                        <li onClick={au}><a class="dropdown-item">AUSTRALIA</a></li>
+                        <li onClick={ca}><a class="dropdown-item">CANADA</a></li>
+                        <li onClick={gb}><a class="dropdown-item">U.K</a></li>
+                        <li onClick={pk}><a class="dropdown-item">PAKISTAN</a></li>
+                        <li onClick={ind}><a class="dropdown-item">INDIA</a></li>
                     </ul>
                 </div>
             </ul>
             <div classNameName="container">
-                <h1  style={{ color: "white", fontSize: "larger", fontFamily: " 'Cinzel', serif;",marginLeft:"5px"}}>   ARTICLES ON {queary}</h1>
-                <p style={{color:"white",opacity:0.5,marginLeft:"5px"}}>SELECTED COUNTRY {country.toUpperCase()} & CATEG: {queary}</p>
+                <h1 style={{ color: "white", fontSize: "larger", fontFamily: " 'Cinzel', serif;", marginLeft: "5px" }}>   ARTICLES ON {categ}</h1>
+                <p style={{ color: "white", marginLeft: "5px", color: "skyblue" }}>SELECTED COUNTRY: {conname} & CATEG: {categ}</p>
             </div>
             <div>
                 {article.map((item, index) => {
                     return (
                         <>
-                            <div className="card my-2" style={{ backgroundColor: "black",borderRadius:"8px"}} onClick={() => window.open(item.url)}>
+                            <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
                                 <div class="my-4">
-                                    <img src={item.image} class="card-img-top" alt="image" />
+                                    <img src={item.image} class="card-img-top" alt="image" style={{ borderRadius: "3px" }} />
+                                    
                                     <div class="card-body">
                                         <h5 style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;", fontSize: 28 }} class="card-title">{item.title}</h5>
                                         <p style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;" }} class="card-text">{item.description}</p>
                                     </div>
-                                    <p style={{color:"white",marginLeft:"8px"}}>Source: {item.source.name}</p>
-                                    <p style={{color:"white",marginLeft:"8px"}}>{item.publishedAt}</p>
+                                    <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>Source: {item.source.name}</p>
+                                    <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>{item.publishedAt}</p>
+                                    <hr style={{ backgroundColor: "white" }} />
                                 </div>
                             </div>
                         </>
                     )
                 })}
             </div>
-            <nav className="navbar fixed-bottom navbar-dark bg-dark">
-                <div classNameName="container">
-                    <input value={queary} onChange={(event) => setquery(event.target.value.toUpperCase())} type="text" placeholder="  Search Any Article" style={{ width: "90%", borderRadius: "5px", border: "none" }} /><i style={{ color: "white" }} className="fas fa-search"></i>
-                </div>
-            </nav>
+
         </>
     )
 }

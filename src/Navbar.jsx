@@ -2,9 +2,9 @@ import React from "react";
 const Navbar = () => {
     return (
         <>
-            <nav class="navbar navbar-dark bg-dark">
+            <nav class="navbar fixed-bottom navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <h1 class="navbar-brand mb-0 h1" style={{textAlign:"center"}}>gNEWS.in</h1>
+                    <a class="navbar-brand" href="#" style={{color:"skyblue",textAlign:"center",marginLeft:"110px"}}>gNews.in</a>
                 </div>
             </nav>
         </>
