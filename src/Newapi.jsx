@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import Newelement from './Newelement'
-import Element from './Element'
-
 const Newapi = () => {
     const [queary, setquery] = useState("nation")
     const [article, setarticle] = useState([])
     const [country, setcountry] = useState("in")
     const [categ, setcateg] = useState("NATION")
     const [conname, setconname] = useState("INDIA")
+    const [lang,setlang]=useState("en")
     useEffect(() => {
         const gnewsapi = async () => {
-
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=07f62a37353c75a45455b4e5a71f8064
+            const url = `https://gnews.io/api/v4/top-headlines?&token=bd0121d32fcc64c4fa5383f27fa4b35d
 
-            &country=${country}&lang=en&topic=${queary}`;
+
+            &country=${country}&lang=${lang}&topic=${queary}`;
 
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
             const response = await fetch(url);
@@ -84,15 +82,65 @@ const Newapi = () => {
         e.preventDefault()
         setconname("U.K")
     }
-    const pk = (e) => {
-        setcountry("pk")
+    const de = (e) => {
+        setcountry("de")
         e.preventDefault()
-        setconname("PAK")
+        setconname("GER")
+        setlang("de")
     }
     const ind = (e) => {
         setcountry("in")
         e.preventDefault()
         setconname("INDIA")
+    }
+    const fr = (e) => {
+        setcountry("fr")
+        e.preventDefault()
+        setconname("FRA")
+        setlang("fr")
+
+    }
+    const ru = (e) => {
+        setcountry("ru")
+        e.preventDefault()
+        setconname("RUS")
+        setlang("ru")
+
+    }
+    const no = (e) => {
+        setcountry("no")
+        e.preventDefault()
+        setconname("NORWAY")
+        setlang("no")
+
+    }
+    const ie = (e) => {
+        setcountry("ie")
+        e.preventDefault()
+        setconname("IRE")
+        setlang("ie")
+
+    }
+    const it = (e) => {
+        setcountry("it")
+        e.preventDefault()
+        setconname("ITALY")
+        setlang("it")
+
+    }
+    const se = (e) => {
+        setcountry("se")
+        e.preventDefault()
+        setconname("SWE")
+        setlang("se")
+    }
+    const pk = (e) => {
+        setcountry("pk")
+        e.preventDefault()
+        setconname("PAK")
+    }
+    const delee=()=>{
+        setarticle("")
     }
 
     return (
@@ -169,9 +217,16 @@ const Newapi = () => {
                         <li onClick={us}><a class="dropdown-item">U.S</a></li>
                         <li onClick={au}><a class="dropdown-item">AUSTRALIA</a></li>
                         <li onClick={ca}><a class="dropdown-item">CANADA</a></li>
+                        <li onClick={se}><a class="dropdown-item">SWEDEN</a></li>
+                        <li onClick={ie}><a class="dropdown-item">IRELAND</a></li>
                         <li onClick={gb}><a class="dropdown-item">U.K</a></li>
-                        <li onClick={pk}><a class="dropdown-item">PAKISTAN</a></li>
+                        <li onClick={it}><a class="dropdown-item">ITALY</a></li>
+                        <li onClick={no}><a class="dropdown-item">NORWAY</a></li>
+                        <li onClick={fr}><a class="dropdown-item">FRANCE</a></li>
+                        <li onClick={de}><a class="dropdown-item">GERMANY</a></li>
                         <li onClick={ind}><a class="dropdown-item">INDIA</a></li>
+                        <li onClick={ru}><a class="dropdown-item">RUSSIA</a></li>
+                        <li onClick={pk}><a class="dropdown-item">PAKISTAN</a></li>
                     </ul>
                 </div>
             </ul>
@@ -183,7 +238,7 @@ const Newapi = () => {
                 {article.map((item, index) => {
                     return (
                         <>
-                            <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
+                            <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} /*onClick={() => window.open(item.url)}*/>
                                 <div class="my-4">
                                     <img src={item.image} class="card-img-top" alt="image" style={{ borderRadius: "3px" }} />
                                     
@@ -193,7 +248,8 @@ const Newapi = () => {
                                     </div>
                                     <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>Source: {item.source.name}</p>
                                     <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>{item.publishedAt}</p>
-                                    <hr style={{ backgroundColor: "white" }} />
+                                    {/*<button className="btn btn-danger">DELETE</button>*/}
+                                    <hr onClick={delee} style={{ backgroundColor: "white" }} />
                                 </div>
                             </div>
                         </>
