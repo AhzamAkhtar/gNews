@@ -9,7 +9,7 @@ const Newapi = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=bd0121d32fcc64c4fa5383f27fa4b35d
+            const url = `https://gnews.io/api/v4/top-headlines?&token=a3bd46c42dd12ae35906909a6c7b3556
 
 
             &country=${country}&lang=${lang}&topic=${queary}`;
@@ -139,10 +139,6 @@ const Newapi = () => {
         e.preventDefault()
         setconname("PAK")
     }
-    const delee=()=>{
-        setarticle("")
-    }
-
     return (
         <>
             <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
@@ -238,18 +234,19 @@ const Newapi = () => {
                 {article.map((item, index) => {
                     return (
                         <>
-                            <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
+                            <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} /*onClick={() => window.open(item.url)}*/>
                                 <div class="my-4">
                                     <img src={item.image} class="card-img-top" alt="image" style={{ borderRadius: "3px" }} />
-                                    
+                                    key={index}
+                                    id={index}
                                     <div class="card-body">
                                         <h5 style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;", fontSize: 28 }} class="card-title">{item.title}</h5>
                                         <p style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;" }} class="card-text">{item.description}</p>
                                     </div>
                                     <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>Source: {item.source.name}</p>
                                     <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>{item.publishedAt}</p>
-                                    {/*<button className="btn btn-danger">DELETE</button>*/}
-                                    <hr onClick={delee} style={{ backgroundColor: "white" }} />
+                                    {/*<button onClick={del} className="btn btn-danger">DELETE</button>*/}
+                                    <hr style={{ backgroundColor: "white" }} />
                                 </div>
                             </div>
                         </>
