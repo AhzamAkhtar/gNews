@@ -10,6 +10,9 @@ const Navbar = () => {
     if (curr<10){
         curr=0+curr
     }
+    if(curr<10){
+        curr="0"+curr
+    }
     if(Curdate>=1 && Curdate<12){
         greet="GOOD MORNING"
         cssStyle.color="green"
@@ -23,7 +26,6 @@ const Navbar = () => {
         cssStyle.color="yellow"
         icon="fas fa-moon"
     }
-    
     return (
         <>
             <nav class="navbar fixed-bottom navbar-dark bg-dark">
