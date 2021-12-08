@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 const Navbar = () => {
     let Curdate=new Date();
     Curdate=Curdate.getHours();
@@ -13,7 +13,7 @@ const Navbar = () => {
     if(Curdate>=1 && Curdate<12){
         greet="GOOD MORNING"
         cssStyle.color="green"
-        icon="fas fa-cloud-moon"
+        icon="fas fa-sun"
     }else if(Curdate>=12 && Curdate<19){
         greet="GOOD EVENING"
         cssStyle.color="orange"
@@ -21,7 +21,7 @@ const Navbar = () => {
     }else{
         greet="GOOD NIGHT"
         cssStyle.color="yellow"
-        icon="fas fa-cloud-moon"
+        icon="fas fa-moon"
     }
     
     return (
