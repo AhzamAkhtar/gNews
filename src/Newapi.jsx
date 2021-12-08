@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Temp from './Temp'
+import Wstack from './Wstack';
 const Newapi = () => {
     const [queary, setquery] = useState("nation")
     const [article, setarticle] = useState([])
@@ -10,7 +10,7 @@ const Newapi = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=7e53c32c8edefa8c3b41810d70d52934
+            const url = `https://gnews.io/api/v4/top-headlines?&token=a3bd46c42dd12ae35906909a6c7b3556
 
 
             &country=${country}&lang=${lang}&topic=${queary}`;
@@ -183,7 +183,7 @@ const Newapi = () => {
             <div>
                 <h1 style={{backgroundColor:"black",width:"100%",height:"50px",color:"white",textAlign:"center",fontFamily: "font-family: 'Oswald', sans-serif;"}}>WEATHER REPORT</h1>
             </div>
-            <Temp/>
+            <Wstack/>
             <ul className="nav justify-content-center my-3">
                 <span style={{ fontSize: "1.2rem", color: "white" }}>
                     <i onClick={nation} class="far fa-flag" style={{ userSelect: "auto" }}></i>&nbsp;&nbsp;
