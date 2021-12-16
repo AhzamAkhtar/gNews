@@ -8,7 +8,8 @@ const Slider = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=bd0121d32fcc64c4fa5383f27fa4b35d
+            const url = `https://gnews.io/api/v4/top-headlines?&token=48c3163b5116589229df7e39c06d8893
+
 
             &country=${country}&lang=${lang}}`;
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
