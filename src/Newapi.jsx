@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Wstack from './Wstack';
+//import Wstack from './Wstack';
 const Newapi = () => {
     const [queary, setquery] = useState("nation")
     const [article, setarticle] = useState([])
@@ -254,7 +254,7 @@ const Newapi = () => {
             <div>
                 <h1 style={{backgroundColor:"black",width:"100%",height:"50px",color:"white",textAlign:"center",fontFamily: "font-family: 'Oswald', sans-serif;"}}>WEATHER REPORT</h1>
             </div>
-           <Wstack/>
+           {/*<Wstack/>*/}
             <ul className="nav justify-content-center my-3">
                 <span style={{ fontSize: "1.2rem", color: "white" }}>
                     <i onClick={nation} class="far fa-flag" style={{color:`${back1}`}}></i>&nbsp;&nbsp;
