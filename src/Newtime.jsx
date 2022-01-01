@@ -6,11 +6,11 @@ const Newtime=()=>{
     var Icon=""
     const cssStyle={}
     let time=new Date().getHours()
-    if(time>=1 && time<12){
+    if(time>=0 && time<12){
         Greet="AM"
         GreetText="GOOD MORNING"
         Icon="fas fa-sun"
-        cssStyle.color="green"
+        cssStyle.color="yellow"
     }
     if(time>=12 && time<18){
         Greet="PM"
@@ -49,6 +49,9 @@ const Newtime=()=>{
         min=new Date().getMinutes()
         if(min<10){
             min="0"+min
+            setMin(min)
+        
+        }else{
             setMin(min)
         }
         
