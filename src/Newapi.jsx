@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Newtime from "./Newtime"
 //import Wstack from './Wstack';
 const Newapi = () => {
     const [queary, setquery] = useState("nation")
@@ -18,7 +19,7 @@ const Newapi = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=48c3163b5116589229df7e39c06d8893
+            const url = `https://gnews.io/api/v4/top-headlines?&token=a0748da9bf3618a68e4c0b72e910ffa5
 
             &country=${country}&lang=${lang}&topic=${queary}`;
 
@@ -252,7 +253,8 @@ const Newapi = () => {
                 </button>
             </div>
             <div>
-                <h1 style={{backgroundColor:"black",width:"100%",height:"50px",color:"white",textAlign:"center",fontFamily: "font-family: 'Oswald', sans-serif;"}}>WEATHER REPORT</h1>
+                <Newtime/>
+                {/*<h1 style={{backgroundColor:"black",width:"100%",height:"50px",color:"white",textAlign:"center",fontFamily: "font-family: 'Oswald', sans-serif;"}}>WEATHER REPORT</h1>*/}
             </div>
            {/*<Wstack/>*/}
             <ul className="nav justify-content-center my-3">
@@ -313,14 +315,12 @@ const Newapi = () => {
                             <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
                                 <div class="my-4">
                                     <img src={item.image} class="card-img-top" alt="image" style={{ borderRadius: "3px" }} />
-                                    key={index}
-                                    id={index}
                                     <div class="card-body">
                                         <h5 style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;", fontSize: 28 }} class="card-title">{item.title}</h5>
                                         <p style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;" }} class="card-text">{item.description}</p>
                                     </div>
                                     <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>Source: {item.source.name}</p>
-                                    <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>{item.publishedAt}</p>
+                                    
                                     {/*<button onClick={del} className="btn btn-danger">DELETE</button>*/}
                                     <hr style={{ backgroundColor: "white" }} />
                                 </div>
