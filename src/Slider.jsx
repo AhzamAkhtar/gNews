@@ -126,7 +126,7 @@ const Slider = () => {
                                     <p style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;" }} class="card-text">{item.description}</p>
                                 </div>
                                 <p style={{ color: "white", marginLeft: "8px",color:"skyblue"}}>Source: {item.source.name}</p>
-                                <p style={{ color: "white", marginLeft: "8px",color:"skyblue"}}>{item.publishedAt}</p>
+                               { /*<p style={{ color: "white", marginLeft: "8px",color:"skyblue"}}>{item.publishedAt}</p>*/}
                                 <hr style={{ backgroundColor: "white" }} />
                             </div>
                         </div>

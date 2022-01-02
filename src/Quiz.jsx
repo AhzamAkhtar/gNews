@@ -53,10 +53,18 @@ export default function App() {
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
+			console.log(score)
 		} else {
 			setShowScore(true);
 		}
 	};
+	const reset=()=>{
+		/*setCurrentQuestion(0)*/
+		setShowScore(false)
+		setCurrentQuestion(0)
+		setScore(0)
+		//console.log("clciked")
+	}
 	return (
 		<div className='app'>
         {/*<div className='question-text'> Know More About Our Website</div>*/}
@@ -64,7 +72,11 @@ export default function App() {
 			{showScore ? (
 				<div className='score-section'>
 					{/*You scored {score} out of {questions.length}*/}
-                    <h1 style={{textAlign:"center"}}>Thanks For Your Time</h1>
+                    <h1 style={{textAlign:"center"}}>You Score {score} out of {questions.length}</h1>
+					<button onClick={reset}>Reset Quiz</button>
+					<div>
+						{score<=2 ? (<h1>Bad </h1>) : (<h1>Awesome</h1>) }
+					</div>
 				</div>
 			) : (
 				<>
@@ -73,12 +85,15 @@ export default function App() {
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
 						</div>
 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
+						<input type="range" min="0" max="125" value={(currentQuestion+1)*25}></input> 
+						{/*console.log((currentQuestion+1)*25)*/} 
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
 							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 						))}
 					</div>
+			
 				</>
 			)}
 		</div>
