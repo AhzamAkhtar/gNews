@@ -1,14 +1,17 @@
 import { ListItem } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
-const Slider = () => {
+const Newslider = () => {
+    const [city, setcity] = useState("null")
+    const [queary, setqueary] = useState("")
+    const [fullqueary, setfullqueary] = useState("nation")
     const [article, setarticle] = useState([])
     const [country, setcountry] = useState("in")
     const [name, setname] = useState("INDIA")
-    const [lang,setlang]=useState("en")
+    const [lang, setlang] = useState("en")
     useEffect(() => {
-        const gnewsapi = async () => {  
+        const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=eb245571ea890ae8e124e398edc6f0a7
+            const url = `https://gnews.io/api/v4/search?q=${fullqueary}&token=eb245571ea890ae8e124e398edc6f0a7
 
 
             &country=${country}&lang=${lang}}`;
@@ -19,7 +22,7 @@ const Slider = () => {
             { setarticle(resJson.articles) }
         }
         gnewsapi();
-    }, [country]);
+    }, [country, fullqueary])
     const us = (e) => {
         setcountry("us")
         setname("U.S")
@@ -45,7 +48,7 @@ const Slider = () => {
         setname("PAKISTAN")
         e.preventDefault()
     }
-    const ind=(e)=>{
+    const ind = (e) => {
         setcountry("in")
         e.preventDefault()
         setname("INDIA")
@@ -91,9 +94,21 @@ const Slider = () => {
         setname("SWE")
         setlang("se")
     }
+    const inputEvent = (event) => {
+        setqueary(event.target.value)
+    }
+    const onSubmit = (event) => {
+        event.preventDefault()
+        setfullqueary(queary)
+    }
     return (
         <>
-            <h1 style={{ color: "white", fontFamily: "Oswald, sans-serif;", marginLeft: "5px" }}>TOP-HEADLIES IN {name.toUpperCase()}</h1>
+            <h1 style={{ color: "white", fontFamily: "Oswald, sans-serif;", marginLeft: "5px" }}>SEARCH ANY ARTICLE</h1>
+            {/*<input type="text" placeholder='Enter' onChange={inputEvent}/>*/}
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder='Search'onChange={inputEvent}/>
+            </div>
+            <button style={{width:"50%",alignItems:"center",justifyContent:"center"}} type="button" class="btn btn-warning" onClick={onSubmit}>Search <i style={{color:"black"}} class="fas fa-search"></i></button>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary mx-2 my-2">{name}</button>
                 <button type="button" class="btn btn-secondary  dropdown-toggle dropdown-toggle-split my-2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -114,19 +129,19 @@ const Slider = () => {
                     <li onClick={ru}><a class="dropdown-item">RUSSIA</a></li>
                 </ul>
             </div>
-            <p style={{ color: "white", marginLeft: "5px",marginLeft:"5px",color:"skyblue"}}>SELECTED COUNTRY : {name.toUpperCase()}</p>
+            <p style={{ color: "white", marginLeft: "5px", marginLeft: "5px", color: "skyblue" }}>SELECTED COUNTRY : {name.toUpperCase()}</p>
             {article.map((item, index) => {
                 return (
                     <>
                         <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
                             <div class="my-4">
-                                <img src={item.image} class="card-img-top" alt="image" style={{borderRadius:"3px"}} />
+                                <img src={item.image} class="card-img-top" alt="image" style={{ borderRadius: "3px" }} />
                                 <div class="card-body">
                                     <h5 style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;", fontSize: 28 }} class="card-title">{item.title}</h5>
                                     <p style={{ color: "white", fontFamily: "font-family: 'Oswald', sans-serif;" }} class="card-text">{item.description}</p>
                                 </div>
-                                <p style={{ color: "white", marginLeft: "8px",color:"skyblue"}}>Source: {item.source.name}</p>
-                               <p style={{ color: "white", marginLeft: "8px",color:"skyblue"}}>{item.publishedAt}</p>
+                                <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>Source: {item.source.name}</p>
+                                <p style={{ color: "white", marginLeft: "8px",color:"skyblue"}}>{item.publishedAt}</p>
                                 <hr style={{ backgroundColor: "white" }} />
                             </div>
                         </div>
@@ -136,4 +151,4 @@ const Slider = () => {
         </>
     )
 }
-export default Slider
+export default Newslider

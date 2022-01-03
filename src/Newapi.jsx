@@ -19,8 +19,7 @@ const Newapi = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
-            const url = `https://gnews.io/api/v4/top-headlines?&token=a0748da9bf3618a68e4c0b72e910ffa5
-
+            const url = `https://gnews.io/api/v4/top-headlines?&token=eb245571ea890ae8e124e398edc6f0a7
             &country=${country}&lang=${lang}&topic=${queary}`;
 
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
@@ -321,7 +320,7 @@ const Newapi = () => {
                                     </div>
                                     <p style={{ color: "white", marginLeft: "8px", color: "skyblue" }}>Source: {item.source.name}</p>
                                     
-                                    {/*<button onClick={del} className="btn btn-danger">DELETE</button>*/}
+                        
                                     <hr style={{ backgroundColor: "white" }} />
                                 </div>
                             </div>
