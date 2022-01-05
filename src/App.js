@@ -10,6 +10,7 @@ import Newslider from './Newslider';
 import Quiz from './Quiz';
 import Footer from './Footer';
 import Slider from './Slider';
+import Location from './Location';
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
       <Newslider/>
       <Quiz/>
       <Footer/>
+      <Location/>
     </>
   );
 }
