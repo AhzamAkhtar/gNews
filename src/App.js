@@ -11,7 +11,7 @@ import Quiz from './Quiz';
 import Footer from './Footer';
 import Slider from './Slider';
 import Location from './Location';
-import Rpc from './Rpc';
+import RPc from './Rpc';
 function App() {
   return (
     <>
@@ -23,7 +23,7 @@ function App() {
       <Newslider/>
       <Quiz/>
       <hr/>
-      <Rpc/>
+      <RPc/>
       <hr/>
       <Footer/>
       <Location/>

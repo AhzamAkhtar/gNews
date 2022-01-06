@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-const Rpc = () => {
+const RPc = () => {
     //var Random=Math.floor(Math.random() * 3)
     var sel_com = ""
     var randomi = Math.floor(Math.random() * 3)
@@ -107,7 +107,7 @@ const Rpc = () => {
         </>
     )
 }
-export default Rpc
+export default RPc
 
 
 {/*function randomNumber(min, max) { 
