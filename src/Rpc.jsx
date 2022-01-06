@@ -100,7 +100,7 @@ const RPc = () => {
             </div>
             <button style={{textAlign:"center",width:"80%",marginLeft:"15px",marginBottom:"10px"}} onClick={Rock}>Rock</button>
             <button style={{textAlign:"center",width:"80%",marginLeft:"15px",marginBottom:"10px"}} onClick={Paper}>Paper</button>
-            <button style={{textAlign:"center",width:"80%",marginLeft:"15px"}} onClick={Scissors}>Scissors</button>
+            <button style={{textAlign:"center",width:"80%",marginLeft:"15px",marginBottom:"10px"}} onClick={Scissors}>Scissors</button>
             <h3  style={{color:"lightgreen",marginLeft:"15px"}}>Your score is {userscore}</h3>
             <h3  style={{color:"orange",marginLeft:"15px"}}>PC score {pcscore}</h3>
             <button style={{textAlign:"center",width:"80%",marginLeft:"15px",marginBottom:"10px"}} onClick={reset}>Reset</button>
