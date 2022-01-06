@@ -1,6 +1,8 @@
 import { ListItem } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
+import Spinner  from './Spinner';
 const Newslider = () => {
+    const [spin,setspin]=useState(false)
     const [city, setcity] = useState("null")
     const [queary, setqueary] = useState("")
     const [fullqueary, setfullqueary] = useState("nation")
@@ -11,6 +13,7 @@ const Newslider = () => {
     useEffect(() => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
+            setspin(true)
             const url = `https://gnews.io/api/v4/search?q=${fullqueary}&token=eb245571ea890ae8e124e398edc6f0a7
 
 
@@ -18,6 +21,7 @@ const Newslider = () => {
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
             const response = await fetch(url);
             const resJson = await response.json();
+            setspin(false)
             console.log(resJson.articles)
             { setarticle(resJson.articles) }
         }
@@ -130,7 +134,12 @@ const Newslider = () => {
                 </ul>
             </div>
             <p style={{ color: "white", marginLeft: "5px", marginLeft: "5px", color: "skyblue" }}>SELECTED COUNTRY : {name.toUpperCase()}</p>
-            {article.map((item, index) => {
+            <div>
+            {spin ? (
+                <Spinner/>
+            ):(
+                <>
+                {article.map((item, index) => {
                 return (
                     <>
                         <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
@@ -148,6 +157,10 @@ const Newslider = () => {
                     </>
                 )
             })}
+            </>
+            )}
+            
+            </div>
         </>
     )
 }
