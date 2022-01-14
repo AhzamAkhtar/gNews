@@ -11,7 +11,7 @@ const Slider = () => {
         const gnewsapi = async () => {  
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
             setspin(true)
-            const url = `https://gnews.io/api/v4/top-headlines?&token=eb245571ea890ae8e124e398edc6f0a7
+            const url = `https://gnews.io/api/v4/top-headlines?&token=0f183a18388cbfd80c2def15a25fbfee
 
 
             &country=${country}&lang=${lang}}`;
@@ -142,7 +142,7 @@ const Slider = () => {
                     </>
                 )
             })}
-            )
+            
             </>
             
             )}
