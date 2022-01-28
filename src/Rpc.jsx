@@ -1,4 +1,12 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+const getLocalItems=()=>{
+    let list=localStorage.getItem("lists")
+    if(list){
+        return JSON.parse(localStorage.getItem("lists"))
+    }else{
+        return []
+    }
+}
 const RPc = () => {
     //var Random=Math.floor(Math.random() * 3)
     var sel_com = ""
@@ -6,7 +14,7 @@ const RPc = () => {
     console.log(randomi)
     const [Users, setUsers] = useState("")
     const [Comp, setComp] = useState("")
-    const [userscore, setuserscore] = useState(0)
+    const [userscore, setuserscore] = useState(getLocalItems)
     const [pcscore, setpcscore] = useState(0)
     const random = () => {
         // Returns a random integer from 0 to2:
@@ -91,6 +99,9 @@ const RPc = () => {
         setComp("")
         setUsers("")
     }
+    useEffect(()=>{
+        localStorage.setItem("lists",JSON.stringify(userscore))
+    },[userscore])
     return (
         <>
             <h1 style={{textAlign:"center"}}>Rock Paper Scissors</h1>

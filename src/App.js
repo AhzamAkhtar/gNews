@@ -12,6 +12,7 @@ import Footer from './Footer';
 import Slider from './Slider';
 import Location from './Location';
 import RPc from './Rpc';
+import TextSpeech from './TextSpeech';
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
       <hr/>
       <Footer/>
       <Location/>
+      <TextSpeech/>
     </>
   );
 }
