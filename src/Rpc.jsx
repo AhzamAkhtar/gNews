@@ -101,7 +101,7 @@ const RPc = () => {
     }
     useEffect(()=>{
         localStorage.setItem("lists",JSON.stringify(userscore))
-    },[userscore])
+    },[userscore])  
     return (
         <>
             <h1 style={{textAlign:"center"}}>Rock Paper Scissors</h1>

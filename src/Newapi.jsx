@@ -22,7 +22,7 @@ const Newapi = () => {
         const gnewsapi = async () => {
             //const url = `https://gnews.io/api/v4/search?q=example&token=a3bd46c42dd12ae35906909a6c7b3556&q=${queary}`;
             setspin(true)
-            const url = `https://gnews.io/api/v4/top-headlines?&token=0f183a18388cbfd80c2def15a25fbfee
+            const url = `https://gnews.io/api/v4/top-headlines?&token=a5aaa59810d58657fc9d4f7d6c890ca6
             &country=${country}&lang=${lang}&topic=${queary}`;
             //const url="https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=dlVR6N3WDcWAVYW05GQ5KmKlajpBJ0ck"
             const response = await fetch(url);
@@ -211,7 +211,7 @@ const Newapi = () => {
     }
     const pk = (e) => {
         setcountry("pk")
-        e.preventDefault()
+        e.preventDefault()  
         setconname("PAK")
     }
     return (
