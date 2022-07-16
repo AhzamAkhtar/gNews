@@ -316,9 +316,11 @@ const Newapi = () => {
             ):(
                 
                 <>
+                <div className="row" style={{border:"2px"}}>
                 {article.map((item, index) => {
                     return (
                         <>
+                        <div className="col-md-3 my-3">
                             <div className="card my-2" style={{ backgroundColor: "black", borderRadius: "8px" }} onClick={() => window.open(item.url)}>
                                 <div class="my-4">
                                     <img src={item.image} class="card-img-top" alt="image" style={{ borderRadius: "3px" }} />
@@ -331,16 +333,21 @@ const Newapi = () => {
                                     <hr style={{ backgroundColor: "white" }} />
                                 </div>
                             </div>
+                            </div>
+                            
                         </>
                     )
                 })}
+                </div>
                 </>
                 
             )}
                 
             </div>
+            
 
         </>
+        
     )
 }
 export default Newapi
